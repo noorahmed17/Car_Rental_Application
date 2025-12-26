@@ -1,0 +1,11 @@
+userId,username,password,phoneNumber,role,nationalID
+1,Admin System,admin123,0123456789,manager,
+2,Sara Ahmed,mgr456,0112222333,manager,
+3,Ahmed Ali,pass123,0133333444,customer,12345678901234
+4,Mohamed Hassan,moh123,0144444555,customer,98765432109876
+5,Fatma Omar,fatma789,0155555666,customer,11223344556677
+6,Khaled Mahmoud,drive123,0166666777,driver,22334455667788
+7,Ali Salem,driverali,0177777888,driver,33445566778899
+8,Hana Khaled,hana2025,0188888999,customer,44556677889900
+9,Omar Boss,boss999,0199999000,manager,
+10,Sara Youssef,sara111,0100000111,driver,55667788990011
