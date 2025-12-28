@@ -1,7 +1,57 @@
 #include "Customer.h"
 #include <iostream>
 #include <cstdlib>
+#include <fstream>
+#include <sstream>
+#include <iostream>
+#include <filesystem>
 using namespace std;
+//Search available
+void searchAvailableCars() {
+    ifstream file("cars.txt", ios::in);
+
+    if (!file) {
+        cout << "Error opening cars file.\n";
+        return;
+    }
+
+    string line;
+    bool anyAvailable = false;  
+
+    cout << "Available Cars:\n";
+
+    while (getline(file, line)) {
+        stringstream ss(line);
+
+        string id, brand, model, year, price, status;
+
+        getline(ss, id, ',');
+        getline(ss, brand, ',');
+        getline(ss, model, ',');
+        getline(ss, year, ',');
+        getline(ss, price, ',');
+        getline(ss, status, ',');
+
+
+
+        if (status == "Available") {
+            anyAvailable = true;
+            cout << "---------------------\n";
+            cout << "ID: " << id << endl;
+            cout << "Brand: " << brand << endl;
+            cout << "Model: " << model << endl;
+            cout << "Year: " << year << endl;
+            cout << "Price per day: $" << price << endl;
+        }
+    }
+
+    if (!anyAvailable) {
+        cout << "Dear,There is no available cars \n";
+    }
+
+    file.close();
+}
+
 
 void Customer::showAvailableCars(const vector<Car>& cars) {
     cout << "\nAvailable Cars:\n";
