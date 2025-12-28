@@ -4,7 +4,7 @@
 #include <iostream>
 
 using namespace std;
-Manager::Manager() : User(), Cars() {};
+Manager::Manager() : User(), carManager() {};
 
 // Read data from CSV file
 void Manager::readDataFromFile(const string &filename)
@@ -82,6 +82,12 @@ void Manager::displayDrivers()
     }
 }
 
+// Diplay Cars
+void Manager::viewAllCars()
+{
+    carManager.viewAllCars();
+}
+
 // Add Car
 void Manager::addCar()
 {
@@ -109,8 +115,8 @@ void Manager::addCar()
     cout << " Status: ";
     cin >> newCar.availibility_status;
 
-    allCars.push_back(newCar);
-    appendToFile("cars.csv", newCar);
+    carManager.allCars.push_back(newCar);
+    carManager.appendToFile("cars.csv", newCar);
 }
 
 // Upadte A Car
@@ -136,7 +142,7 @@ void Manager::updateCar()
     {
         cout << "No Car Found With This ID \n";
     }
-    saveToFile("cars.csv", Cars::allCars);
+    carManager.saveToFile("cars.csv", Cars::allCars);
 }
 
 // delete A Car
@@ -164,5 +170,5 @@ void Manager::deleteCar()
     {
         cout << "No Car Found With This ID \n";
     }
-    saveToFile("cars.csv", Cars::allCars);
+    carManager.saveToFile("cars.csv", Cars::allCars);
 }

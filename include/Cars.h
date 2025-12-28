@@ -16,12 +16,25 @@ public:
     bool availibility_status;
     double carRentalCost;
     static vector<Cars> allCars;
+
     Cars();
+    Cars(int _carId, string _model, string _color, int _carNum, bool _availibility_status, double _carRentalCost)
+    {
+        carId = _carId;
+        model = _model;
+        color = _color;
+        carNum = _carNum;
+        availibility_status = _availibility_status;
+        carRentalCost = _carRentalCost;
+    }
 
     void viewAllCars();
     void viewAllAvaliableCars();
     void viewCarInfo(int id);
-    // void setAvailability(vector<Cars> cars, int id) ;
+
+    void reserve() { availibility_status = 1; }
+    void makeAvailable() { availibility_status = 1; }
+    bool isAvailable() const { return availibility_status; }
 };
 
 #endif

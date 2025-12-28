@@ -10,8 +10,11 @@
 
 using namespace std;
 
-class Manager : public User, public Cars
+class Manager : public User
 {
+private:
+    Cars carManager;
+
 public:
     vector<Driver> drivers;
 
@@ -22,6 +25,7 @@ public:
     void deleteDriver(int driverId);
     void displayDrivers();
 
+    void viewAllCars();
     void addCar();
     void updateCar();
     void deleteCar();
