@@ -6,99 +6,156 @@
 using namespace std;
 Manager::Manager() : User(), carManager() {};
 
-// Read data from CSV file
-void Manager::readDataFromFile(const string &filename)
+Manager::Manager(int id, const string &uname)
 {
-    ifstream file(filename);
-    string line;
-
-    getline(file, line);
-
-    while (getline(file, line))
+    user_Id = id;
+    userName = uname;
+    role = Role_Manager;
+}
+bool Manager::login()
+{
+    cout << "\nWelcome Manager " << userName << " \n";
+    return true;
+}
+void Manager::showMenu()
+{
+    int choice;
+    do
     {
-        stringstream ss(line);
-        string id, uname, pass, phone, r, nid;
+        cout << "\n===== MANAGER MENU =====\n";
+        cout << "1. View All Cars\n";
+        cout << "2. Add Car\n";
+        cout << "3. Update Car\n";
+        cout << "4. Delete Car\n";
+        cout << "5. View Drivers\n";
+        cout << "0. Logout\n";
+        cout << "Choice: ";
+        cin >> choice;
 
-        getline(ss, id, ',');
-        getline(ss, uname, ',');
-        getline(ss, pass, ',');
-        getline(ss, phone, ',');
-        getline(ss, r, ',');
-        getline(ss, nid, ',');
-
-        if (r == "driver")
+        switch (choice)
         {
-            drivers.push_back(
-                Driver(stoi(id), uname, pass, phone, r, nid, true));
+        case 1:
+            // viewAllCars();
+            cout << "Logging out...\n";
+            break;
+        case 2:
+            // addCar();
+            cout << "Logging out...\n";
+            break;
+        case 3:
+            // updateCar();
+            cout << "Logging out...\n";
+            break;
+        case 4:
+            // deleteCar();
+            cout << "Logging out...\n";
+            break;
+        case 5:
+            // displayDrivers();
+            cout << "Logging out...\n";
+            break;
+        case 0:
+            cout << "Logging out...\n";
+            break;
+        default:
+            cout << "Invalid choice\n";
         }
-    }
+    } while (choice != 0);
 }
 
-void Manager::saveDataToFile(const string &filename)
-{
-    ofstream file(filename);
-    file << "userId,username,password,phoneNumber,role,nationalID,status\n";
+// // Read data from CSV file
+// void Manager::readDataFromFile(const string &filename)
+// {
+//     ifstream file(filename);
+//     string line;
 
-    for (auto &d : drivers)
-    {
-        file << d.getUserId() << ","
-             << d.getUsername() << ","
-             << d.getPassword() << ","
-             << d.getPhoneNumber() << ","
-             << d.getRole() << ","
-             << d.getNationalId() << ","
-             << d.getRole() << "\n";
-    }
+//     getline(file, line);
 
-    file.close();
-}
-// Add driver
-void Manager::addDriver(Driver d)
-{
-    drivers.push_back(d);
-    cout << "Driver added: " << d.getUsername() << endl;
-}
+//     while (getline(file, line))
+//     {
+//         stringstream ss(line);
+//         string id, uname, pass, phone, r, nid;
 
-// Update driver
-void Manager::updateDriver(int driverId, string newPhone)
-{
-    for (auto &d : drivers)
-    {
-        if (d.getUserId() == driverId)
-        {
-            d.setPhoneNumber(newPhone);
-            cout << "Driver updated: " << d.getUsername() << endl;
-            return;
-        }
-    }
-    cout << "Driver not found!" << endl;
-}
+//         getline(ss, id, ',');
+//         getline(ss, uname, ',');
+//         getline(ss, pass, ',');
+//         getline(ss, phone, ',');
+//         getline(ss, r, ',');
+//         getline(ss, nid, ',');
 
-// Delete driver
-void Manager::deleteDriver(int driverId)
-{
-    for (auto it = drivers.begin(); it != drivers.end(); ++it)
-    {
-        if (it->getUserId() == driverId)
-        {
-            cout << "Driver deleted: " << it->getUsername() << endl;
-            drivers.erase(it);
-            return;
-        }
-    }
-    cout << "Driver not found!" << endl;
-}
+//         if (r == "driver")
+//         {
+//             drivers.push_back(
+//                 Driver(stoi(id), uname, pass, phone, r, nid, true));
+//         }
+//     }
+// }
 
-// Display drivers
-void Manager::displayDrivers()
-{
-    for (auto &d : drivers)
-    {
-        cout << d.getUserId() << " "
-             << d.getUsername() << " "
-             << endl;
-    }
-}
+// void Manager::saveDataToFile(const string &filename)
+// {
+//     ofstream file(filename);
+//     file << "userId,username,password,phoneNumber,role,nationalID,status\n";
+
+//     for (auto &d : drivers)
+//     {
+//         file << d.getUserId() << ","
+//              << d.getUsername() << ","
+//              << d.getPassword() << ","
+//              << d.getPhoneNumber() << ","
+//              << d.getRole() << ","
+//              << d.getNationalId() << ","
+//              << d.getRole() << "\n";
+//     }
+
+//     file.close();
+// }
+// // Add driver
+// void Manager::addDriver(Driver d)
+// {
+//     drivers.push_back(d);
+//     cout << "Driver added: " << d.getUsername() << endl;
+// }
+
+// // Update driver
+// void Manager::updateDriver(int driverId, string newPhone)
+// {
+//     for (auto &d : drivers)
+//     {
+//         if (d.getUserId() == driverId)
+//         {
+//             d.setPhoneNumber(newPhone);
+//             cout << "Driver updated: " << d.getUsername() << endl;
+//             return;
+//         }
+//     }
+//     cout << "Driver not found!" << endl;
+// }
+
+// // Delete driver
+// void Manager::deleteDriver(int driverId)
+// {
+//     for (auto it = drivers.begin(); it != drivers.end(); ++it)
+//     {
+//         if (it->getUserId() == driverId)
+//         {
+//             cout << "Driver deleted: " << it->getUsername() << endl;
+//             drivers.erase(it);
+//             return;
+//         }
+//     }
+//     cout << "Driver not found!" << endl;
+// }
+
+// // Display drivers
+// void Manager::displayDrivers()
+// {
+//     for (auto &d : drivers)
+//     {
+//         cout << d.getUserId() << " "
+//              << d.getUsername() << " "
+//              << endl;
+//     }
+// }
 
 // Diplay Cars
 void Manager::viewAllCars()

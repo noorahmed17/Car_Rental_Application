@@ -22,12 +22,15 @@ public:
     vector<Driver> drivers;
 
     Manager();
+    Manager(int id, const string& uname);
+    bool login() override;
+    void showMenu() override;
     void readDataFromFile(const string &filename);
-    void addDriver(Driver d);
-    void saveDataToFile(const string& filename);
-    void updateDriver(int driverId, string newPhone);
-    void deleteDriver(int driverId);
-    void displayDrivers();
+    // void addDriver(Driver d);
+    // void saveDataToFile(const string& filename);
+    // void updateDriver(int driverId, string newPhone);
+    // void deleteDriver(int driverId);
+    // void displayDrivers();
 
     void viewAllCars();
     void addCar();
