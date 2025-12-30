@@ -21,7 +21,7 @@ int main()
     // mgr.updateCar();
     // mgr.deleteCar();
 
-    mgr.viewReservation();
+    mgr.viewFeedbacks();
 
     //  Add a driver
     // Driver newDriver(12, "Taha Diaa", "pass999", "200000000", "driver", "6.77889E+13", true);

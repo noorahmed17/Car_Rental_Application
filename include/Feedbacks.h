@@ -21,11 +21,9 @@ public:
     string comment;
     static vector<Feedback> feedbacks;
 
-    //Feedback();
-    //void loadAll();
     void createFeedback(int resId, int custId, int carId);
     void viewAllFeedbacks();
-    void viewFeedbacksForCar();
+
 };
 
 void loadFeedbacks(vector<Feedback>& feedbacks, const string& filename = "feedbacks.csv");

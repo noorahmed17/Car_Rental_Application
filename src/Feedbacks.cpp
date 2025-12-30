@@ -91,10 +91,6 @@ void appendFeedback(const Feedback &fb, const string &filename)
     file.close();
     cout << "Feedback recorded successfully.\n";
 }
-// Feedback::Feedback()
-// {
-//     loadFeedbacks(Feedback::feedbacks);
-// }
 
 void Feedback::createFeedback(int resId, int custId, int carId)
 {
@@ -105,7 +101,7 @@ void Feedback::createFeedback(int resId, int custId, int carId)
         {
             if (f.feedbackId >= index)
             {
-                //cout<< f.feedbackId << "\n";
+                // cout<< f.feedbackId << "\n";
                 index = f.feedbackId + 1;
             }
         }
@@ -125,3 +121,15 @@ void Feedback::createFeedback(int resId, int custId, int carId)
     Feedback::feedbacks.push_back(feed);
     appendFeedback(feed);
 };
+
+void Feedback::viewAllFeedbacks()
+{
+    cout << "\n--- List of FeedBacks ---\n";
+    for (const auto &f : feedbacks)
+    {
+        cout << "ID: " << f.feedbackId
+             << " | Rating: " << f.rating
+             << " | Comment: " << f.comment
+             << endl;
+    }
+}

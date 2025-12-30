@@ -12,7 +12,7 @@ void Manager::readDataFromFile(const string &filename)
     ifstream file(filename);
     string line;
 
-    getline(file, line); // skip header
+    getline(file, line); 
 
     while (getline(file, line))
     {
@@ -175,4 +175,8 @@ void Manager::deleteCar()
 
 void Manager::viewReservation(){
     res.viewAllReservation();
+}
+
+void Manager::viewFeedbacks(){
+    feeds.viewAllFeedbacks();
 }
