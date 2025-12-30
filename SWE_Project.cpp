@@ -7,6 +7,7 @@ using namespace std;
 
 int main()
 {
+    loadFeedbacks(Feedback::feedbacks, "feedbacks.csv");
     Cars temp;
     temp.readFromFile("cars.csv", Cars::allCars);
 
@@ -15,10 +16,12 @@ int main()
     // mgr.displayDrivers();
 
     // Car Functionality
-    // mgr.addCar();
+    //mgr.addCar();
     // mgr.viewAllCars();
     // mgr.updateCar();
     // mgr.deleteCar();
+
+    mgr.viewReservation();
 
     //  Add a driver
     // Driver newDriver(12, "Taha Diaa", "pass999", "200000000", "driver", "6.77889E+13", true);
@@ -32,9 +35,10 @@ int main()
 
     // mgr.displayDrivers();
     Customer c;
-    c.viewAllAvaliableCars();
-    c.reserveCar();
+    // c.viewAllAvaliableCars();
+    // c.reserveCar();
     c.viewReservations();
+    c.createFeed();
 
     return 0;
 }

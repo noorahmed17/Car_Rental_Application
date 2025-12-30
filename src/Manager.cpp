@@ -172,3 +172,7 @@ void Manager::deleteCar()
     }
     carManager.saveToFile("cars.csv", Cars::allCars);
 }
+
+void Manager::viewReservation(){
+    res.viewAllReservation();
+}

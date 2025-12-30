@@ -103,6 +103,7 @@ void File<T>::appendToFile(const string &filename, const T &temp)
         cout << "Car added successfully to file with ID: " << temp.carId << endl;
     }
 }
+
 template <typename T>
 void File<T>::saveToFile(const string &filename, vector<T> &temp)
 {
@@ -128,4 +129,5 @@ void File<T>::saveToFile(const string &filename, vector<T> &temp)
         file.close();
     }
 }
+
 template class File<Cars>;

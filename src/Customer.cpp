@@ -1,11 +1,13 @@
 #include "Customer.h"
 #include "FileFunctions.h"
+#include "reservation.h"
 #include <iostream>
 #include <cstdlib>
 #include <fstream>
 #include <sstream>
 #include <iostream>
 #include <filesystem>
+#include <algorithm>
 using namespace std;
 // Search available
 // void searchAvailableCars()
@@ -158,22 +160,55 @@ void Customer::cancelReservation()
 
 void Customer::viewReservations()
 {
-    vector<Reservation> reservations = loadReservations();
-    bool hasRes = false;
-    cout << "\nYour Reservations:\n";
-    for (auto &r : reservations)
+    // vector<Reservation> reservations = loadReservations();
+    // bool hasRes = false;
+    // cout << "\nYour Reservations:\n";
+    // for (auto &r : reservations)
+    // {
+    //     if (r.customerId == customerId)
+    //     {
+    //         cout << "ID: " << r.reservationId
+    //              << " | CarID: " << r.carId
+    //              << " | Status: " << r.status
+    //              << " | From: " << r.startDate
+    //              << " To: " << r.endDate
+    //              << " | Cost: " << r.totalCost << endl;
+    //         hasRes = true;
+    //     }
+    // }
+    // if (!hasRes)
+    //     cout << "No reservations found.\n";
+    res.viewMyReservations();
+}
+
+void Customer::createFeed()
+{
+    vector<Reservation> completed;
+    cout << customerId << "\n";
+    customerId = 0;
+    for (const auto &r : res.reserves)
     {
-        if (r.customerId == customerId)
+        if (r.customerId == customerId && r.status == "Active")
         {
-            cout << "ID: " << r.reservationId
-                 << " | CarID: " << r.carId
-                 << " | Status: " << r.status
-                 << " | From: " << r.startDate
-                 << " To: " << r.endDate
-                 << " | Cost: " << r.totalCost << endl;
-            hasRes = true;
+            completed.push_back(r);
         }
     }
-    if (!hasRes)
-        cout << "No reservations found.\n";
+    if (completed.empty())
+    {
+        cout << "No Reservations For This User Yet, Cannot Create FeedBack\n";
+        return;
+    }
+
+    int resId;
+    cout << "Enter Reservation ID to leave feedback: ";
+    cin >> resId;
+
+    auto itr = find_if(completed.begin(), completed.end(),
+                       [resId](const Reservation &r)
+                       { return r.reservationId == resId; });
+    if(itr == completed.end()){
+        cout << "Invalid ID \n";
+        return;
+    }
+    feeds.createFeedback(itr->reservationId, itr->customerId ,itr->carId);
 }

@@ -2,9 +2,11 @@
 #define RESERVATION_H
 
 #include <string>
+#include <vector>
 using namespace std;
 
-class Reservation {
+class Reservation 
+{
 public:
     int reservationId;
     int customerId;
@@ -14,6 +16,7 @@ public:
     int totalDays;
     double totalCost;
     string status;
+    static vector<Reservation> reserves;
 
     Reservation() {}
     Reservation(int rId, int cId, int car,
@@ -28,6 +31,9 @@ public:
         totalCost = cost;
         status = "Active";
     }
+
+    void viewAllReservation();
+    void viewMyReservations();
 };
 
 #endif

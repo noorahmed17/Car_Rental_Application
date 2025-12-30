@@ -7,6 +7,7 @@
 #include "Driver.h"
 #include "Cars.h"
 #include "File.h"
+#include "reservation.h"
 
 using namespace std;
 
@@ -14,6 +15,7 @@ class Manager : public User
 {
 private:
     Cars carManager;
+    Reservation res;
 
 public:
     vector<Driver> drivers;
@@ -29,6 +31,8 @@ public:
     void addCar();
     void updateCar();
     void deleteCar();
+
+    void viewReservation();
 };
 
 #endif

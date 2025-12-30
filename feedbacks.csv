@@ -1,0 +1,12 @@
+feedbackId,reservationId,customerId,carId,rating,comment
+1,42,1,1,5,"Outstanding experience! The car was spotless and performed perfectly. Highly recommend this model."
+2,1,1,3,4,"Good service overall. Car was clean, but pickup took 15 minutes longer than expected."
+3,44,1,3,5,"Excellent! Car was in perfect condition, staff very professional. Will rent again."
+4,43,1,3,2,"Disappointed. Car had engine noise from day one. Had to return early – got refund but inconvenient."
+5,42,1,1,3,"Decent car, but interior had some wear and wasn't fully cleaned. Drove well though."
+6,45,0,5,4,"Luxury car lived up to expectations. Smooth ride and great features. Worth the price."
+7,46,0,7,1,"Terrible experience! Car broke down on highway. Waited 3 hours for assistance. Never again."
+8,47,0,3,5,"Reliable car for long trip. No issues, good fuel economy. Staff helpful at return."
+9,1,1,3,5,"Second time renting this car – always reliable and comfortable. Great value!"
+10,45,0,5,5,"Perfect for family trip. Spacious, safe, and well-maintained. 10/10 would rent again."
+11,47,0,3,5,"cool"
