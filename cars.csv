@@ -1,6 +1,4 @@
-CarID,Model,Color,CarNum,availibility_status,carRentalCost
-1,Toyota Corolla,Silver,1001,1,450
-2,Honda Civic,Black,1002,1,480
+2,Honda Civic,Black,1002,1,1500
 3,Hyundai Elantra,White,1003,1,520
 4,Kia Cerato,Red,1004,0,500
 5,Toyota Camry,Gray,1005,1,750
@@ -8,5 +6,6 @@ CarID,Model,Color,CarNum,availibility_status,carRentalCost
 7,BMW 320i,Blue,1007,1,1100
 8,Suzuki Swift,Red,1008,1,350
 9,Mazda 3,White,1009,0,550
-10,Nissan Sentra,Silver,1010,1,46011,Kia,Red,10011,1,120
-11,Kia,Red,10011,1,140
+10,Nissan Sentra,Silver,1010,1,460
+11,Kia Sportage,Red,1011,1,1200
+12,BMW,Red,10014,1,120
