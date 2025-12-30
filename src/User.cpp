@@ -52,6 +52,10 @@ void User::setPhoneNumber(string phone) {
     phone_number = phone;
 }
 
+void User::setNationalId(string nid) {
+    nationalId = nid;
+}
+
 // Getters
 int User::getUserId() {
     return userId;
@@ -71,6 +75,10 @@ string User::getRole() {
 
 string User::getPhoneNumber() {
     return phone_number;
+}
+
+string User::getNationalId() {
+    return nationalId;
 }
 
 // Display
