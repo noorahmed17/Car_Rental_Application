@@ -24,6 +24,7 @@ public:
     void setPassword(string pass);
     void setRole(string role);
     void setPhoneNumber(string phone);
+    void setNationalId(string nationalId);
 
     // Getters
     int getUserId();
@@ -31,6 +32,7 @@ public:
     string getPassword();
     string getRole();
     string getPhoneNumber();
+    string getNationalId();
 
     // Display
     void display();
