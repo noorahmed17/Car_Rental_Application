@@ -33,6 +33,24 @@ void Manager::readDataFromFile(const string& filename)
         }
     }
 }
+void Manager::saveDataToFile(const string& filename)
+{
+    ofstream file(filename);
+    file << "userId,username,password,phoneNumber,role,nationalID,status\n";
+
+    for (auto& d : drivers)
+    {
+        file << d.getUserId() << ","
+            << d.getUsername() << ","
+            << d.getPassword() << ","
+            << d.getPhoneNumber() << ","
+            << d.getRole() << ","
+            << d.getNationalId() << ","
+            << d.getRole() << "\n";
+    }
+
+    file.close();
+}
 
 // Add driver
 void Manager::addDriver(Driver d)

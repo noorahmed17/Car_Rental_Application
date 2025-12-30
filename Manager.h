@@ -14,6 +14,7 @@ public:
 
     void readDataFromFile(const string& filename);
     void addDriver(Driver d);
+    void saveDataToFile(const string& filename);
     void updateDriver(int driverId, string newPhone);
     void deleteDriver(int driverId);
     void displayDrivers();

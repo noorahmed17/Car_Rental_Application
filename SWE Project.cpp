@@ -10,15 +10,16 @@ using namespace std;
         mgr.displayDrivers();
 
         // Add a driver
-        Driver newDriver(12, "Taha Diaa", "pass999", "200000000", "driver", "6.77889E+13", true);
+        Driver newDriver(13, "soha Diaa", "pass999", "200000000", "driver", "6.77889E+13", true);
         mgr.addDriver(newDriver);
 
         // Update driver
-       // mgr.updateDriver(6, "999999999");
+        mgr.updateDriver(6, "999999999");
 
         // Delete driver
-        //mgr.deleteDriver(7);
+        mgr.deleteDriver(7);
 
+        mgr.saveDataToFile("users.csv");
         mgr.displayDrivers();
         return 0;
     }
