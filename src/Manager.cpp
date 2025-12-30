@@ -12,7 +12,7 @@ void Manager::readDataFromFile(const string &filename)
     ifstream file(filename);
     string line;
 
-    getline(file, line); 
+    getline(file, line);
 
     while (getline(file, line))
     {
@@ -34,6 +34,24 @@ void Manager::readDataFromFile(const string &filename)
     }
 }
 
+void Manager::saveDataToFile(const string &filename)
+{
+    ofstream file(filename);
+    file << "userId,username,password,phoneNumber,role,nationalID,status\n";
+
+    for (auto &d : drivers)
+    {
+        file << d.getUserId() << ","
+             << d.getUsername() << ","
+             << d.getPassword() << ","
+             << d.getPhoneNumber() << ","
+             << d.getRole() << ","
+             << d.getNationalId() << ","
+             << d.getRole() << "\n";
+    }
+
+    file.close();
+}
 // Add driver
 void Manager::addDriver(Driver d)
 {
@@ -173,10 +191,12 @@ void Manager::deleteCar()
     carManager.saveToFile("cars.csv", Cars::allCars);
 }
 
-void Manager::viewReservation(){
+void Manager::viewReservation()
+{
     res.viewAllReservation();
 }
 
-void Manager::viewFeedbacks(){
+void Manager::viewFeedbacks()
+{
     feeds.viewAllFeedbacks();
 }
