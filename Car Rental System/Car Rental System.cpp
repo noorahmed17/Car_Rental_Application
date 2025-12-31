@@ -6,6 +6,7 @@
 #include <thread>
 #include <chrono>
 #include <windows.h>
+#include "Cars.h"
 using namespace std;
 #define CYAN  "\033[1;36m"
 #define GREY  "\033[90m"
@@ -142,6 +143,8 @@ int showMainMenu() {
 }
 
 int main() {
+    
+    Cars::updateCarsStatus();
     showIntro();
     while (true) {
         int choice = showMainMenu();
