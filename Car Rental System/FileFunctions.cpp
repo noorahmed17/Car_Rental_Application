@@ -36,50 +36,7 @@ void saveCars(const vector<Cars> &cars)
              << c.carRentalCost << "\n";
     }
 }
-////================ Reservations =================
-//vector<Reservation> loadReservations()
-//{
-//    vector<Reservation> reservations;
-//    ifstream file("reservations.txt");
-//    string line;
-//    while (getline(file, line))
-//    {
-//        stringstream ss(line);
-//        Reservation r;
-//        string id, custId, carId, days, cost,driverId;
-//       /* getline(ss, id, ',');
-//        r.reservationId = stoi(id);
-//        getline(ss, custId, ',');
-//        r.customerId = stoi(custId);
-//        getline(ss, carId, ',');
-//        r.carId = stoi(carId);
-//        getline(ss, r.startDate, ',');
-//        getline(ss, r.endDate, ',');
-//        getline(ss, days, ',');
-//        r.totalDays = stoi(days);
-//        getline(ss, cost, ',');
-//        r.totalCost = stod(cost);
-//        getline(ss, r.status);*/
-//        getline(ss, id, ',');
-//        getline(ss, custId, ',');
-//        getline(ss, carId, ',');
-//        getline(ss, r.startDate, ',');
-//        getline(ss, r.endDate, ',');
-//        getline(ss, days, ',');
-//        getline(ss, cost, ',');
-//        getline(ss, driverId, ',');   //
-//        getline(ss, r.status);
-//
-//        r.reservationId = stoi(id);
-//        r.customerId = stoi(custId);
-//        r.carId = stoi(carId);
-//        r.totalDays = stoi(days);
-//        r.totalCost = stod(cost);
-//        r.driverId = stoi(driverId);
-//        reservations.push_back(r);
-//    }
-//    return reservations;
-//}
+
 vector<Reservation> loadReservations()
 {
     vector<Reservation> reservations;
@@ -125,9 +82,6 @@ void saveReservations(const vector<Reservation>& reservations)
 
     for (const auto& r : reservations)
     {
-        /*file << r.reservationId << "," << r.customerId << ","
-            << r.carId << "," << r.startDate << "," << r.endDate << ","
-            << r.totalDays << "," << r.totalCost << "," << r.status << endl;*/
         file << r.reservationId << "," << r.customerId << ","
             << r.carId << "," << r.startDate << "," << r.endDate << ","
             << r.totalDays << "," << r.totalCost << ","
@@ -141,33 +95,7 @@ void saveReservation(const Reservation &r) {
         << r.carId << "," << r.startDate << "," << r.endDate
         << "," << r.totalDays << "," << r.totalCost << ","<<r.driverId<<"," << r.status << endl;
 }
-//void updateReservation(const Reservation &updatedRes)
-//{
-//    vector<Reservation> reservations = loadReservations();
-//    bool found = false;
-//    for (auto &r : reservations)
-//    {
-//        if (r.reservationId == updatedRes.reservationId)
-//        {
-//            r = updatedRes;
-//            found = true;
-//            break;
-//        }
-//    }
-//    if (!found)
-//    {
-//        cout << "Reservation not found!\n";
-//        return;
-//    }
-//
-//    ofstream file("reservations.txt");
-//    for (auto &r : reservations)
-//    {
-//        file << r.reservationId << "," << r.customerId << ","
-//             << r.carId << "," << r.startDate << "," << r.endDate << ","
-//             << r.totalDays << "," << r.totalCost << "," << r.status << endl;
-//    }
-//}
+
 vector<Driver> loadDrivers() {
     vector<Driver> drivers;
     ifstream file("drivers.txt");
@@ -176,13 +104,6 @@ vector<Driver> loadDrivers() {
         if (line.empty()) continue;
         stringstream ss(line);
         Driver d;
-        //string id, statusStr;
-        //getline(ss, id, ',');
-        //d.id = stoi(id);
-        //getline(ss, d.uname, ',');
-        //getline(ss, d.phone, ',');
-        //getline(ss, statusStr);
-        //d.status = (statusStr == "1"); // 1 = Available, 0 = Busy
         string driverId, userId, uname, phone, nid, statusStr;
 
         getline(ss, driverId, ',');
@@ -206,10 +127,6 @@ vector<Driver> loadDrivers() {
 
 // Saving drivers to file
 void saveDrivers(const vector<Driver>& drivers) {
-   /* ofstream file("drivers.txt");
-    for (const auto& d : drivers) {
-        file << d.id << "," << d.uname << "," << d.phone << "," << (d.status ? "1" : "0") << endl;
-    }*/
     ofstream file("drivers.txt");
     for (const auto& d : drivers)
     {

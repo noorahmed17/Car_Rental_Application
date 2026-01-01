@@ -8,7 +8,7 @@
 
 using namespace std;
 
-static class HelperFunctions {
+class HelperFunctions {
 public:
     
     static int calculateDays(const string& start, const string& end) {
